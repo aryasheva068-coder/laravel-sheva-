@@ -32,7 +32,7 @@
 
                 <div class="card-body text-center pt-0 px-4 pb-4">
                     <div class="profile-avatar-wrapper mb-3">
-                        <img src="https://picsum.photos/200" alt="Foto Profil"
+                        <img src="{{ asset('propertis/wallpapers.jpg') }}" alt="Foto profil mahasiswa pada halaman profil Unpam; subjek utama ditampilkan dalam suasana formal dengan latar belakang sederhana"
                             class="rounded-circle profile-avatar shadow">
                     </div>
 
