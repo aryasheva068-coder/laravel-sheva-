@@ -28,10 +28,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a href="{{ url('/') }}" class="nav-link active">Home</a>
+                        <a href="{{ url('/profile') }}" class="nav-link active">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/mahasiswa') }}" class="nav-link">Profile</a>
+                        <a href="{{ url('/project') }}" class="nav-link">project</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ url('/about') }}" class="nav-link">About</a>
