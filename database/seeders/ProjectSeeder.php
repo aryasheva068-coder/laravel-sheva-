@@ -13,28 +13,34 @@ class ProjectSeeder extends Seeder
      */
     public function run(): void
     {
-        //
         $projects = [
             [
-                'title' => 'Sistem Informasi Akademik',
-                'description' => 'aplikasi berbasis web untuk pengelolaan data ',
-                'teknologi' => 'Laravel & Boosstrap',
+                'title' => 'Sistem ERP',
+                'description' => 'Sistem ERP untuk perusahaan manufaktur yang mengintegrasikan berbagai fungsi bisnis seperti keuangan, produksi, dan manajemen persediaan.',
+                'teknologi' => 'PHP, Laravel',
                 'image' => 'project1.jpg',
-                'status'=> 'selesai'
+                'status'=> 'active'
             ],
             [
-                'title' => 'E-commerce SEO Optimization ',
-                'description' => 'aplikasi optimalisasi struktur head8ng dan indexing halaman web toko online  ',
-                'teknologi' => 'PHP & Google Seare Console',
+                'title' => 'Sistem HRIS',
+                'description' => 'Sistem HRIS untuk mengelola data karyawan dan proses sumber daya manusia.',
+                'teknologi' => 'JavaScript, React',
                 'image' => 'project2.jpg',
-                'status'=> 'in progress'
+                'status'=> 'active'
             ],
             [
-                'title' => 'Redesind Cover & branding',
-                'description' => 'perancangan element grafis persinal branding dan desaint sampul buku rekayasa web',
-                'teknologi' => 'Figma & Canva',
+                'title' => 'Sistem SCM',
+                'description' => 'Sistem SCM untuk mengelola rantai pasokan dan logistik perusahaan.',
+                'teknologi' => 'Python, Django',
                 'image' => 'project3.jpg',
-                'status'=> 'selesai'
+                'status'=> 'active'
+            ],
+            [
+                'title' => 'Sistem WMS',
+                'description' => 'Sistem Warehouse Management System untuk mengelola inventaris dan operasional gudang.',
+                'teknologi' => 'PHP, Laravel',
+                'image' => 'project4.jpg',
+                'status'=> 'active'
             ],
         ];
 

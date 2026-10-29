@@ -1,44 +1,55 @@
 @extends('layouts.page.app')
 
-@section('title', 'Portfolio Project - UNPAM')
+@section('title', 'My Projects')
 
 @section('content')
-<div class="container py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bold">My Projects</h1>
+        </div>
 
-    <div class="text-center mb-5">
-        <h2 class="fw-bold">Portofolio Project</h2>
-        <p class="text-muted">Daftar project yang pernah dikerjakan oleh mahasiswa</p>
-    </div>
+        <div class="row g-4">
+            @foreach ($projects as $project)
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <!-- Gambar diambil dari folder public/upload -->
+                    @if($project->image)
+                        <img src="{{ asset('upload/' . $project->image) }}" class="card-img-top" alt="{{ $project->title }}" style="height: 200px; object-fit: cover;">
+                    @else
+                        <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 200px;">
+                            No Image
+                        </div>
+                    @endif
 
-    <div class="row g-4">
-        @foreach ($projects as $project)
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-
-                <img src="{{ asset('images/' . $project->image) }}"
-                     class="card-img-top"
-                     alt="{{ $project->title }}"
-                     style="height: 200px; object-fit: cover;">
-
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">{{ $project->title }}</h5>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{ $project->title }}</h5>
+                        <p class="card-text text-muted small">
+                            {{ Str::limit($project->description, 80) }}
+                        </p>
+                        <p class="card-text small">
+                            <strong>Tech:</strong> {{ $project->teknologi }}
+                        </p>
+                    </div>
+                    
+                    <div class="card-footer bg-white border-0 pb-3">
+                        <!-- Link ke halaman detail -->
+                        <a href="{{ url('/project/' . $project->id) }}" class="btn btn-primary w-100">
+                            Lihat Detail
+                        </a>
+                    </div>
                 </div>
+            </div>
+            @endforeach
+        </div>
 
-                <div class="card-footer bg-white border-0 text-center pb-3">
-                    <a href="{{ url('/project/' . $project->id) }}" class="btn btn-primary btn-sm">
-                        Detail Project
-                    </a>
-                </div>
-
+        <!-- Pagination -->
+        <div class="d-flex flex-column align-items-center mt-5">
+            <div class="mb-2 text-muted">
+                Showing {{ $projects->firstItem() }} to {{ $projects->lastItem() }} of {{ $projects->total() }} results
+            </div>
+            <div>
+                {{ $projects->onEachSide(1)->links('pagination::simple-bootstrap-5') }}
             </div>
         </div>
-        @endforeach
     </div>
-
-    {{-- Pagination --}}
-    <div class="d-flex justify-content-center mt-5">
-        {{ $projects->links('pagination::bootstrap-5') }}
-    </div>
-
-</div>
 @endsection

@@ -28,13 +28,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a href="{{ url('/profile') }}" class="nav-link active">Home</a>
+                        <!-- Perbaikan: Home mengarah ke '/' -->
+                        <a href="{{ url('/') }}" class="nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/project') }}" class="nav-link">project</a>
+                        <!-- Perbaikan: Project mengarah ke '/project' -->
+                        <a href="{{ url('/project') }}" class="nav-link {{ Request::is('project*') ? 'active' : '' }}">Project</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/about') }}" class="nav-link">About</a>
+                        <!-- Perbaikan: About mengarah ke '/about' -->
+                        <a href="{{ url('/about') }}" class="nav-link {{ Request::is('about*') ? 'active' : '' }}">About</a>
                     </li>
                 </ul>
             </div>
