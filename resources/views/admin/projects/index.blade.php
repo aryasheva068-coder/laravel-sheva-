@@ -7,7 +7,6 @@
             <a href="{{ route('admin.projects.create') }}" class="btn btn-primary">Tambah Project</a>
         </div>
 
-        <!-- Tampilkan pesan sukses jika ada -->
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
@@ -31,6 +30,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
+                                <!-- Perhatikan: kita pakai folder 'upload/' -->
                                 @if($project->image)
                                     <img src="{{ asset('upload/' . $project->image) }}" alt="{{ $project->title }}" class="img-thumbnail" style="max-width: 80px;">
                                 @else
@@ -46,10 +46,8 @@
                                 </span>
                             </td>
                             <td>
-                                <!-- LINK EDIT -->
                                 <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-sm btn-warning d-block mb-1">Edit</a>
                                 
-                                <!-- FORM HAPUS (Karena HTML tidak mendukung method DELETE langsung) -->
                                 <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST" class="d-block" onsubmit="return confirm('Yakin ingin menghapus project ini?')">
                                     @csrf
                                     @method('DELETE')

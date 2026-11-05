@@ -28,16 +28,18 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <!-- Perbaikan: Home mengarah ke '/' -->
                         <a href="{{ url('/') }}" class="nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <!-- Perbaikan: Project mengarah ke '/project' -->
                         <a href="{{ url('/project') }}" class="nav-link {{ Request::is('project*') ? 'active' : '' }}">Project</a>
                     </li>
                     <li class="nav-item">
-                        <!-- Perbaikan: About mengarah ke '/about' -->
                         <a href="{{ url('/about') }}" class="nav-link {{ Request::is('about*') ? 'active' : '' }}">About</a>
+                    </li>
+                    
+                    <!-- MENU ADMIN YANG BARU DITAMBAHKAN -->
+                    <li class="nav-item">
+                        <a href="{{ url('/admin') }}" class="nav-link {{ Request::is('admin*') ? 'active' : '' }}">Admin</a>
                     </li>
                 </ul>
             </div>

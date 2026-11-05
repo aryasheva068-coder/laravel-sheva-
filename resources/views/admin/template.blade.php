@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS (CDN) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- DataTables CSS (Tambahan untuk Tabel) -->
+    <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
     
     <style>
@@ -81,6 +81,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-warning fixed-top shadow-sm px-3">
         <div class="container-fluid">
             
+            <!-- Logo di Kiri -->
             <a class="navbar-brand" href="{{ route('admin.dashboard') }}">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo" style="height: 40px; object-fit: contain;">
             </a>
@@ -88,13 +89,20 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ route('home') }}">Dashboard</a>
+                        <a class="nav-link text-dark" href="{{ route('home') }}">Ke Halaman Utama</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="#">Logout</a>
+                    <li class="nav-item ms-3">
+                        <!-- TOMBOL LOGOUT YANG SUDAH BERFUNGSI -->
+                        <form action="{{ route('admin.logout') }}" method="POST" class="d-inline">
+                            @csrf
+                            <button type="submit" class="nav-link text-dark bg-transparent border-0 fw-bold" style="cursor: pointer;">
+                                Logout
+                            </button>
+                        </form>
                     </li>
                 </ul>
             </div>
@@ -134,7 +142,7 @@
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 
-    <!-- TAMBAHKAN INI: Untuk memanggil script dari halaman index.blade.php -->
+    <!-- Untuk memanggil script dari halaman index -->
     @stack('scripts')
 
 </body>
